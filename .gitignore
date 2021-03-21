@@ -1,0 +1,5 @@
+/static
+/venv
+/media
+.DS_Store
+*/migrations/*

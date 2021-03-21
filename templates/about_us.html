@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="second-blog uk-margin-medium-bottom">
+    <div class="bg-image uk-background-cover" style="background-image: url('/static/img/jpg/bg-image.jpg'); padding: 200px 0;">
+      <div class="uk-align-center uk-width-1-2">
+        <p>Как известно, обувь должна быть удобной, и без каблука — очень комфортна. Она подходит абсолютно всем. Она является «спасательным кругом» для тех, кто не может или не должен носить обувь на высоких каблуках (противопоказания и прочее).</p>
+        <p>Однако, даже самые ярые модницы не прочь на время снять каблуки и переобуться в более комфортную обувь на плоской подошве. Которая, кстати, может быть не менее стильной.</p><img class="uk-align-right" src="{% static 'img/png/white-liberty.png' %}" alt="">
+      </div>
+    </div>
+  </section>
+  <section class="about-us">
+    <div class="uk-container">
+      <h2 class="title">О НАС</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, tellus finibus blandit imperdiet, ex lectus pretium erat, ac volutpat mauris quam in nibh. Nullam dignissim porta nibh, sit amet finibus est bibendum a. Vestibulum libero mi, imperdiet at volutpat non, euismod nec elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin ut consectetur sem, pharetra fermentum nisi. Cras at magna est. Pellentesque tempus vitae lectus ut bibendum. Ut auctor libero urna, et porta nunc mollis at. Vivamus semper odio sit amet scelerisque congue. Maecenas sit amet lobortis ligula, at euismod nulla. Duis vel elit sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+      <p>Vestibulum cursus magna sit amet diam dictum semper. Integer mollis vitae urna et consequat. Morbi nec erat mi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse potenti. Cras cursus nisl at volutpat congue. Cras elementum venenatis nunc, eget congue arcu hendrerit eget. Integer eleifend sem sit amet fringilla fringilla. Nam nec lacus ac risus volutpat tempor. Morbi ac lacus ex. Integer sed ornare dolor.</p>
+      <p>Nullam egestas lectus ante, vel dictum sem elementum ac. Quisque elit ante, elementum ut vulputate id, vehicula non ante. Mauris finibus tortor diam, ut rutrum erat fringilla vitae. Nam vel dignissim felis, vel facilisis turpis. Vestibulum odio lectus, laoreet vitae placerat nec, tristique vitae purus. Quisque turpis diam, eleifend nec suscipit non, ultrices ut orci. Sed vestibulum mauris dolor, eu viverra ligula pharetra eu. Fusce tempus magna in sapien varius, vitae blandit dolor dignissim. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec vel tellus vitae felis tristique aliquet. Quisque tempus varius velit et porttitor. Suspendisse aliquet malesuada lorem, efficitur cursus augue dignissim vitae. Sed fermentum pharetra scelerisque. Morbi sed pellentesque dolor. Sed et sodales magna, ac mattis ligula. In tellus orci, tempor vel pretium quis, iaculis sed sem. ante, et fermentum neque. Phasellus auctor ante in ullamcorper mattis. Donec pretium a turpis et rutrum. Nam in vehicula ligula.</p>
+      <h2 class="title uk-margin-medium-bottom">КАК НАС НАЙТИ</h2>
+    </div>
+    <iframe class="uk-width-1-1" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2923.9259264118555!2d74.58111261513665!3d42.87440757915572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389ec822e3048e19%3A0x6eedb0388c619f23!2zMjQ3INGD0LsuINCh0YvQtNGL0LrQvtCy0LAsINCR0LjRiNC60LXQug!5e0!3m2!1sru!2skg!4v1532680384142" width="600" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
+  </section>
+  <section class="about-us-footer">
+    <div class="uk-container">
+      <div class="uk-grid uk-text-center uk-grid-divider uk-child-width-1-3@m" uk-grid>
+        <div><img src="{% static 'img/png/paper-plane.png' %}" alt="">
+          <h2>НАПИШИТЕ НАМ</h2><a href="">Email: jackmovies01@gmail.com</a>
+        </div>
+        <div><img src="{% static 'img/png/navigation.png' %}" alt="">
+          <h2>МЫ НАХОДИМСЯ</h2>
+          <p>Адрес: г.Бишкек ул.Грибоедова 16</p>
+        </div>
+        <div class="uk-margin-small-top"><img src="{% static 'img/png/phone.png' %}" alt="">
+          <h2>ПОЗВОНИТЕ НАМ</h2><a href="tel: +996 771 841 641">Телефон: +996 704 161 775</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

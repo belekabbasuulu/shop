@@ -1,0 +1,300 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="product-detail uk-margin-medium-top uk-visible@m">
+        <div class="uk-container">
+        <div class="uk-grid uk-child-width-1-2@m" uk-grid>
+            <div>
+              <div>
+                {% for image in product.image.all|slice:":1" %}
+                  <img class="my-foto-container uk-width-1-1" data-large="img/jpg/fila-small.jpg" src="{{ image.image.url }}" alt="" title="Фото">
+                {% endfor %}
+                <div class="uk-flex">
+                  {% for image in product.image.all %}
+                  <div>
+                    <div class="item-child">
+                      <img class="my-foto" data-large="img/jpg/fila-small.jpg" src="{{ image.image.url }}" title="Фото1">
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+            <div>
+            <div class="uk-heading-divider">
+                <div class="uk-flex uk-flex-between">
+                <div>
+                    <h1 class="uk-margin-remove">{{ product.title }}</h1>
+                </div>
+                <div><span class="price">{{ product.price }} KGS</span></div>
+                </div>
+            </div>
+            <p class="light">{{ product.description }}</p>
+            <form action="">
+                <div class="size-choice uk-flex">
+                {% for size in product.size.all %}  
+                <div class="uk-margin-small-right">
+                    <label>
+                    <input type="checkbox"><span>{{size}}</span>
+                    </label>
+                </div>
+                {% endfor %}
+                </div>
+                <div class="quantity-choice uk-flex uk-margin-medium uk-flex-middle uk-grid uk-grid-small uk-child-width-auto@s" data-uk-grid>
+                <div class="uk-margin-small-right uk-flex"><span class="minus"></span>
+                    <input type="number" value="1" size="5"><span class="plus"></span>
+                </div>
+                <div>
+                    <button class="uk-button uk-button-primary uk-margin-small-right">В корзину</button>
+                    <button class="uk-button uk-button-primary bg-blue">В избранную</button>
+                </div>
+                </div>
+            </form>
+            </div>
+        </div>
+        </div>
+
+    </section>
+    <section class="product-detail uk-margin-medium-top uk-hidden@m">
+        <div class="uk-container">
+          <div class="uk-grid uk-child-width-1-2@m" uk-grid>
+            <div class="uk-padding-remove">
+              <ul class="slider-for">
+                <li><img src="{% static 'img/jpg/fila1.jpg' %}" alt=""></li>
+                <li><img src="{% static 'img/jpg/slide.jpg' %}" alt=""></li>
+                <li><img src="{% static 'img/jpg/fila1.jpg' %}" alt=""></li>
+                <li><img src="{% static 'img/jpg/slide.jpg' %}" alt=""></li>
+                <li><img src="{% static 'img/jpg/slide.jpg' %}" alt=""></li>
+              </ul>
+              <ul class="slider-nav">
+                <li><img src="{% static 'img/jpg/fila1.jpg' %}" alt=""></li>
+                <li><img src="{% static 'img/jpg/slide.jpg' %}" alt=""></li>
+                <li><img src="{% static 'img/jpg/fila1.jpg' %}" alt=""></li>
+                <li><img src="{% static 'img/jpg/slide.jpg' %}" alt=""></li>
+                <li><img src="{% static 'img/jpg/slide.jpg' %}" alt=""></li>
+              </ul>
+            </div>
+            <div>
+              <div class="uk-heading-divider">
+                <div class="uk-flex uk-flex-between">
+                  <div>
+                    <h1 class="uk-margin-remove">PUMA IGNITE XT</h1>
+                  </div>
+                  <div><span class="price">2900 KGS</span></div>
+                </div>
+              </div>
+              <p class="light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis nunc aliquam, laoreet tellus a, egestas risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce iaculis massa id consectetur lacinia. Nullam gravida id elit et sagittis. Nunc vulputate mi ac justo fringilla, eget placerat purus pulvinar.</p>
+              <form action="">
+                <div class="size-choice uk-flex">
+                  <div class="uk-grid">
+                    <div class="uk-margin-small-right uk-margin-small-top">
+                      <label>
+                        <input type="checkbox"><span>42</span>
+                      </label>
+                    </div>
+                    <div class="uk-margin-small-right uk-margin-small-top">
+                      <label>
+                        <input type="checkbox"><span>41</span>
+                      </label>
+                    </div>
+                    <div class="uk-margin-small-right uk-margin-small-top">
+                      <label>
+                        <input type="checkbox"><span>40</span>
+                      </label>
+                    </div>
+                    <div class="uk-margin-small-right uk-margin-small-top">
+                      <label>
+                        <input type="checkbox"><span>37</span>
+                      </label>
+                    </div>
+                    <div class="uk-margin-small-right uk-margin-small-top">
+                      <label>
+                        <input type="checkbox"><span>35</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="quantity-choice uk-flex uk-margin-medium uk-flex-middle uk-grid uk-grid-small uk-child-width-auto@s" data-uk-grid>
+                  <div class="uk-margin-small-right uk-flex"><span class="minus"></span>
+                    <input type="number" value="1" size="5"><span class="plus"></span>
+                  </div>
+                  <div>
+                    <button class="uk-button uk-button-primary uk-margin-small-right">В корзину</button>
+                    <button class="uk-button uk-button-primary bg-blue">В избранную</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+    </section>
+    <section class="reviews uk-margin-medium-top">
+        <div class="uk-container">
+          <div class="border">
+            <div class="uk-width-1-2@m uk-margin-auto uk-text-center">
+              <h3 class="uk-text-center">ОТЗЫВЫ</h3>
+            </div>
+            <div class="item-reviews uk-margin">
+              <div class="uk-grid" data-uk-grid>
+                <div class="uk-width-auto@m">
+                  <div class="img-wrapper uk-cover-container"><img data-uk-cover src="{% static 'img/jpg/slide.jpg' %}" alt=""></div>
+                </div>
+                <div class="uk-width-expand@s">
+                  <div class="uk-flex uk-flex-between name-user">
+                    <div>
+                      <h4>Noors</h4>
+                    </div>
+                    <div><span class="date">27.09.2018</span></div>
+                  </div>
+                  <div>
+                    <p class="uk-margin-small-top light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium rerum praesentium architecto commodi recusandae voluptatum obcaecati fugit itaque, natus maxime dolorum earum aliquam eveniet magni perspiciatis voluptas quasi fugiat perferendis?</p>
+                  </div>
+                  <div class="rating uk-flex uk-flex-middle"><i class="active"></i><i class="active"></i><i class="active"></i><i></i><i></i><span class="uk-margin-small-left">3/5</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="item-reviews uk-margin">
+              <div class="uk-grid" data-uk-grid>
+                <div class="uk-width-auto@m">
+                  <div class="img-wrapper uk-cover-container"><img data-uk-cover src="{% static 'img/jpg/slide.jpg' %}" alt=""></div>
+                </div>
+                <div class="uk-width-expand@s">
+                  <div class="uk-flex uk-flex-between name-user">
+                    <div>
+                      <h4>Noors</h4>
+                    </div>
+                    <div><span class="date">27.09.2018</span></div>
+                  </div>
+                  <div>
+                    <p class="uk-margin-small-top light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium rerum praesentium architecto commodi recusandae voluptatum obcaecati fugit itaque, natus maxime dolorum earum aliquam eveniet magni perspiciatis voluptas quasi fugiat perferendis?</p>
+                  </div>
+                  <div class="rating uk-flex uk-flex-middle"><i class="active"></i><i class="active"></i><i class="active"></i><i></i><i></i><span class="uk-margin-small-left">3/5</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="uk-margin-medium uk-text-center"><a class="see-more medium" href="#" uk-toggle="target: #read-more">читать дальше</a>
+              <div class="uk-margin-medium-top" id="read-more" hidden>
+                <div class="item-reviews uk-margin">
+                  <div class="uk-grid" data-uk-grid>
+                    <div class="uk-width-auto@m">
+                      <div class="img-wrapper uk-cover-container"><img data-uk-cover src="{% static 'img/jpg/slide.jpg' %}" alt=""></div>
+                    </div>
+                    <div class="uk-width-expand@s">
+                      <div class="uk-flex uk-flex-between name-user">
+                        <div>
+                          <h4>Noors</h4>
+                        </div>
+                        <div><span class="date">27.09.2018</span></div>
+                      </div>
+                      <div>
+                        <p class="uk-text-left light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium rerum praesentium architecto commodi recusandae voluptatum obcaecati fugit itaque, natus maxime dolorum earum aliquam eveniet magni perspiciatis voluptas quasi fugiat perferendis?</p>
+                      </div>
+                      <div class="rating uk-flex uk-flex-middle"><i class="active"></i><i class="active"></i><i class="active"></i><i></i><i></i><span class="uk-margin-small-left">3/5</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="uk-text-center uk-margin-medium"><a class="uk-button uk-button-default modal-reviews regular" href="#" uk-toggle="target: #reviews">Оставить отзыв</a></div>
+        </div>
+    </section>
+    <section class="can-like uk-margin-medium-top uk-margin-medium-bottom">
+        <div class="uk-container">
+          <div class="uk-width-1-2@m uk-margin-auto uk-text-center">
+            <h3 class="uk-text-center">ВАМ МОГУТ ПОНРАВИТЬСЯ</h3>
+          </div>
+          <div class="uk-position-relative uk-visible-toggle" uk-slider="">
+            <ul class="uk-slider-items uk-child-width-1-1 uk-grid uk-grid-small uk-child-width-1-4@m" uk-scrollspy="target: &gt; li; cls:uk-animation-fade; delay: 500; repeat: true">
+              <li>
+                <div class="favorite" uk-toggle="target: .heart; animation: uk-animation-fade; queued: true"><i class="fa fa-heart-o heart"></i><i class="fa fa-heart heart" hidden></i></div>
+                <div class="item uk-position-relative"><a class="uk-position-cover link-to-good" href=""></a>
+                  <div class="img-wrapper uk-cover-container"><img src="{% static 'img/jpg/slide.jpg' %}" alt=""></div>
+                  <div class="title uk-flex uk-flex-middle">
+                    <div class="uk-width-expand@s">
+                      <h4>КЕДЫ VANS</h4>
+                    </div>
+                    <div class="uk-width-auto@s"><span>2500 KGS</span></div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="favorite" uk-toggle="target: .heart1; animation: uk-animation-fade; queued: true"><i class="fa fa-heart-o heart1"></i><i class="fa fa-heart heart1" hidden></i></div>
+                <div class="item uk-position-relative"><a class="uk-position-cover link-to-good" href=""></a>
+                  <div class="img-wrapper uk-cover-container"><img src="{% static 'img/jpg/slide.jpg' %}" alt=""></div>
+                  <div class="title uk-flex uk-flex-middle">
+                    <div class="uk-width-expand@s">
+                      <h4>КЕДЫ VANS</h4>
+                    </div>
+                    <div class="uk-width-auto@s"><span>2500 KGS</span></div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="favorite" uk-toggle="target: .heart2; animation: uk-animation-fade; queued: true"><i class="fa fa-heart-o heart2"></i><i class="fa fa-heart heart2" hidden></i></div>
+                <div class="item uk-position-relative"><a class="uk-position-cover link-to-good" href=""></a>
+                  <div class="img-wrapper uk-cover-container"><img src="{% static 'img/jpg/slide.jpg' %}" alt=""></div>
+                  <div class="title uk-flex uk-flex-middle">
+                    <div class="uk-width-expand@s">
+                      <h4>КЕДЫ VANS</h4>
+                    </div>
+                    <div class="uk-width-auto@s"><span>2500 KGS</span></div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="favorite" uk-toggle="target: .heart3; animation: uk-animation-fade; queued: true"><i class="fa fa-heart-o heart3"></i><i class="fa fa-heart heart3" hidden></i></div>
+                <div class="item uk-position-relative"><a class="uk-position-cover link-to-good" href=""></a>
+                  <div class="img-wrapper uk-cover-container"><img src="{% static 'img/jpg/slide.jpg' %}" alt=""></div>
+                  <div class="title uk-flex uk-flex-middle">
+                    <div class="uk-width-expand@s">
+                      <h4>КЕДЫ VANS</h4>
+                    </div>
+                    <div class="uk-width-auto@s"><span>2500 KGS</span></div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="favorite" uk-toggle="target: .heart4; animation: uk-animation-fade; queued: true"><i class="fa fa-heart-o heart4"></i><i class="fa fa-heart heart4" hidden></i></div>
+                <div class="item uk-position-relative"><a class="uk-position-cover link-to-good" href=""></a>
+                  <div class="img-wrapper uk-cover-container"><img src="{% static 'img/jpg/slide.jpg' %}" alt=""></div>
+                  <div class="title uk-flex uk-flex-middle">
+                    <div class="uk-width-expand@s">
+                      <h4>КЕДЫ VANS</h4>
+                    </div>
+                    <div class="uk-width-auto@s"><span>2500 KGS</span></div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="favorite" uk-toggle="target: .heart5; animation: uk-animation-fade; queued: true"><i class="fa fa-heart-o heart5"></i><i class="fa fa-heart heart5" hidden></i></div>
+                <div class="item uk-position-relative"><a class="uk-position-cover link-to-good" href=""></a>
+                  <div class="img-wrapper uk-cover-container"><img src="{% static 'img/jpg/slide.jpg' %}" alt=""></div>
+                  <div class="title uk-flex uk-flex-middle">
+                    <div class="uk-width-expand@s">
+                      <h4>КЕДЫ VANS</h4>
+                    </div>
+                    <div class="uk-width-auto@s"><span>2500 KGS</span></div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="favorite" uk-toggle="target: .heart6; animation: uk-animation-fade; queued: true"><i class="fa fa-heart-o heart6"></i><i class="fa fa-heart heart6" hidden></i></div>
+                <div class="item uk-position-relative"><a class="uk-position-cover link-to-good" href=""></a>
+                  <div class="img-wrapper uk-cover-container"><img src="{% static 'img/jpg/slide.jpg' %}" alt=""></div>
+                  <div class="title uk-flex uk-flex-middle">
+                    <div class="uk-width-expand@s">
+                      <h4>КЕДЫ VANS</h4>
+                    </div>
+                    <div class="uk-width-auto@s"><span>2500 KGS</span></div>
+                  </div>
+                </div>
+              </li>
+            </ul><a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous="" uk-slider-item="previous"></a><a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next="" uk-slider-item="next"></a>
+          </div>
+        </div>
+    </section>
+
+    {% endblock %}
