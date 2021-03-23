@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 
-from .models import Product, Image
+from .models import Product, Image, Blog
 
 
 class HomeView(View):
@@ -38,10 +38,17 @@ class AboutView(View):
         return render(request, 'about_us.html')
 
 
-class BlogView(View):
+class BlogAllView(View):
 
     def get(self, request):
-        return render(request, 'all_blog.html')
+        blogs = Blog.objects.all()
+        return render(request, 'all_blog.html', context={'blogs': blogs})
+
+class BlogView(View):
+
+    def get(self, request, id):
+        blog = Blog.objects.get(id=id)
+        return render(request, 'blog.html', context={'blog': blog})
 
 
 class Womanview(View):

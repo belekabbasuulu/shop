@@ -5,12 +5,13 @@ from .views import (
     CatalogView,
     ProductDetailView,
     AboutView,
-    BlogView,
+    BlogAllView,
     Womanview,
     Manview,
     ZimaView,
     LetoView,
     DemiView,
+    BlogView,
 )
 
 urlpatterns = [
@@ -18,7 +19,8 @@ urlpatterns = [
     path('catalog', CatalogView.as_view(), name='catalog'),
     path('product/<int:pk>/', ProductDetailView.as_view(), name="product-detail"),
     path('about/', AboutView.as_view(), name='about'),
-    path('blog/', BlogView.as_view(), name='blog'),
+    path('all-blog/', BlogAllView.as_view(), name='all-blog'),
+    path('blog/<int:id>/', BlogView.as_view(), name='blog'),
     path('woman/', Womanview.as_view(), name='woman'),
     path('man/', Manview.as_view(), name='man'),
     path('zima/', ZimaView.as_view(), name='zima'),

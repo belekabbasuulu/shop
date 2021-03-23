@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="second-blog uk-margin-medium-bottom">
+    <div class="bg-image uk-background-cover" style="background-image: url('/static/img/jpg/bg-image.jpg'); padding: 200px 0;">
+      <div class="uk-align-center uk-width-1-2">
+        <p>Как известно, обувь должна быть удобной, и без каблука — очень комфортна. Она подходит абсолютно всем. Она является «спасательным кругом» для тех, кто не может или не должен носить обувь на высоких каблуках (противопоказания и прочее).</p>
+        <p>Однако, даже самые ярые модницы не прочь на время снять каблуки и переобуться в более комфортную обувь на плоской подошве. Которая, кстати, может быть не менее стильной.</p><img class="uk-align-right" src="{% static 'img/png/white-liberty.png' %}" alt="">
+      </div>
+    </div>
+  </section>
+  <section class="about-us">
+    <div class="uk-container">
+      <h2 class="title">{{ blog.title }}</h2>
+        {{ blog.description | safe }}
+        <br>
+        {{ blog.created_at }}
+      <!-- <h2 class="title uk-margin-medium-bottom">КАК НАС НАЙТИ</h2> -->
+    </div>
+    <!-- <iframe class="uk-width-1-1" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2923.9259264118555!2d74.58111261513665!3d42.87440757915572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389ec822e3048e19%3A0x6eedb0388c619f23!2zMjQ3INGD0LsuINCh0YvQtNGL0LrQvtCy0LAsINCR0LjRiNC60LXQug!5e0!3m2!1sru!2skg!4v1532680384142" width="600" height="500" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+  </section>
+
+{% endblock %}

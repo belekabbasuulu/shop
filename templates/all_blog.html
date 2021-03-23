@@ -40,42 +40,14 @@
     <div class="uk-container">
       <h2 class="title">БЛОГ</h2>
       <div class="uk-grid uk-child-width-1-2@s" uk-grid uk-scrollspy="target: &gt; div; cls:uk-animation-fade; delay: 500; repeat: true">
-        <div><img class="uk-width-1-1" src="img/jpg/blog-img1.jpg" alt="">
+        {% for blog in blogs %}
+        <div><img class="uk-width-1-1" src="{{ blog.image.url }}" alt="">
           <div class="uk-padding-small">
-            <h3>ИНТЕРЕСНЫЕ ФАКТЫ О КОМПНИИ NIKE</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rhoncus tortor nisi, sed interdum urna aliquet at. In nec convallis tortor. Maecenas cursus nulla at nunc malesuada, maximus viverra augue ullamcorper. Praesent sagittis placerat lorem vitae bibendum. Sed euismod facilisis tortor, eu pharetra lorem malesuada vel.</p><a class="uk-flex uk-flex-right" href="">ПОДРОБНЕЕ</a>
+            <h3>{{ blog.title }}</h3>
+            <p>{{ blog.sub_title }}</p><a class="uk-flex uk-flex-right" href="{% url 'blog' blog.id %}">ПОДРОБНЕЕ</a>
           </div>
         </div>
-        <div><img class="uk-width-1-1" src="img/jpg/blog-img2.jpg" alt="">
-          <div class="uk-padding-small">
-            <h3>ИНТЕРЕСНЫЕ ФАКТЫ О КОМПНИИ NIKE</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rhoncus tortor nisi, sed interdum urna aliquet at. In nec convallis tortor. Maecenas cursus nulla at nunc malesuada, maximus viverra augue ullamcorper. Praesent sagittis placerat lorem vitae bibendum. Sed euismod facilisis tortor, eu pharetra lorem malesuada vel.</p><a class="uk-flex uk-flex-right" href="">ПОДРОБНЕЕ</a>
-          </div>
-        </div>
-        <div><img class="uk-width-1-1" src="img/jpg/blog-img2.jpg" alt="">
-          <div class="uk-padding-small">
-            <h3>ИНТЕРЕСНЫЕ ФАКТЫ О КОМПНИИ NIKE</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rhoncus tortor nisi, sed interdum urna aliquet at. In nec convallis tortor. Maecenas cursus nulla at nunc malesuada, maximus viverra augue ullamcorper. Praesent sagittis placerat lorem vitae bibendum. Sed euismod facilisis tortor, eu pharetra lorem malesuada vel.</p><a class="uk-flex uk-flex-right" href="">ПОДРОБНЕЕ</a>
-          </div>
-        </div>
-        <div><img class="uk-width-1-1" src="img/jpg/blog-img1.jpg" alt="">
-          <div class="uk-padding-small">
-            <h3>ИНТЕРЕСНЫЕ ФАКТЫ О КОМПНИИ NIKE</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rhoncus tortor nisi, sed interdum urna aliquet at. In nec convallis tortor. Maecenas cursus nulla at nunc malesuada, maximus viverra augue ullamcorper. Praesent sagittis placerat lorem vitae bibendum. Sed euismod facilisis tortor, eu pharetra lorem malesuada vel.</p><a class="uk-flex uk-flex-right" href="">ПОДРОБНЕЕ</a>
-          </div>
-        </div>
-        <div><img class="uk-width-1-1" src="img/jpg/blog-img1.jpg" alt="">
-          <div class="uk-padding-small">
-            <h3>ИНТЕРЕСНЫЕ ФАКТЫ О КОМПНИИ NIKE</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rhoncus tortor nisi, sed interdum urna aliquet at. In nec convallis tortor. Maecenas cursus nulla at nunc malesuada, maximus viverra augue ullamcorper. Praesent sagittis placerat lorem vitae bibendum. Sed euismod facilisis tortor, eu pharetra lorem malesuada vel.</p><a class="uk-flex uk-flex-right" href="">ПОДРОБНЕЕ</a>
-          </div>
-        </div>
-        <div><img class="uk-width-1-1" src="img/jpg/blog-img2.jpg" alt="">
-          <div class="uk-padding-small">
-            <h3>ИНТЕРЕСНЫЕ ФАКТЫ О КОМПНИИ NIKE</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rhoncus tortor nisi, sed interdum urna aliquet at. In nec convallis tortor. Maecenas cursus nulla at nunc malesuada, maximus viverra augue ullamcorper. Praesent sagittis placerat lorem vitae bibendum. Sed euismod facilisis tortor, eu pharetra lorem malesuada vel.</p><a class="uk-flex uk-flex-right" href="">ПОДРОБНЕЕ</a>
-          </div>
-        </div>
+        {% endfor %}
       </div>
       <div class="uk-text-center"><a class="else uk-button" href="" type="button">ПОКАЗАТЬ ЕЩЕ</a></div>
     </div>
