@@ -65,7 +65,7 @@
           </div>
           <div class="uk-navbar-right uk-visible@m">
             <ul class="uk-navbar-nav">
-              <li class="move uk-active"><a href="#">АКЦИИ</a></li>
+              <li class="move uk-active"><a href="{% url 'main-stock' %}">АКЦИИ</a></li>
               <li class="move"><a href="{% url 'catalog' %}">КАТАЛОГ</a></li>
               <li class="move"><a href="{% url 'about' %}">О НАС</a></li>
               <li class="move"><a href="{% url 'all-blog' %}">БЛОГ</a></li>
@@ -117,7 +117,7 @@
           </div>
           <div>
             <h3 class="medium">Навигация</h3>
-            <div><a class="regular" href="">Акции</a></div>
+            <div><a class="regular" href="{% url 'main-stock' %}">Акции</a></div>
             <div><a class="regular" href="{% url 'catalog' %}">Каталог</a></div>
             <div><a class="regular" href="{% url 'about' %}">О нас</a></div>
             <div><a class="regular" href="{% url 'all-blog' %}">Блог</a></div>

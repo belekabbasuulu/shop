@@ -46,7 +46,7 @@
         </div>
         <div uk-scrollspy="cls: uk-animation-slide-right; repeat: true">
           <div class="img-wrapper uk-cover-container"><img data-uk-cover src="{% static 'img/jpg/cat2.jpg' %}" alt="">
-            <h2 class="uk-position-center light">ДЛЯ ЖЕНЩИН</h2><a class="uk-position-cover" href="{% url 'man' %}"></a>
+            <h2 class="uk-position-center light">ДЛЯ МУЖЧИН</h2><a class="uk-position-cover" href="{% url 'man' %}"></a>
           </div>
         </div>
       </div>
@@ -155,7 +155,7 @@
               <i class="fa fa-heart-o heart4"></i>
               <i class="fa fa-heart heart4" hidden></i>
             </div>
-            <a href="">
+            <a href="{% url 'product-detail' product.id %}">
               <div class="item">
                 {% for image in product.image.all|slice:":1" %}
                 <div class="uk-panel uk-cover-container"><img data-uk-cover src="{{ image.image.url }}" alt="">

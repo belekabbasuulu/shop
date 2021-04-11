@@ -27,10 +27,24 @@
                 <div>
                     <h1 class="uk-margin-remove">{{ product.title }}</h1>
                 </div>
-                <div><span class="price">{{ product.price }} KGS</span></div>
+                <div>
+                  {% if product.percent != 0 %}
+                  <p class="line">{{ product.price }} KGS</p>
+                  {% endif %}
+                  <span class="price">{{ product.stock_price }} KGS</span>
+                </div>
                 </div>
             </div>
             <p class="light">{{ product.description }}</p>
+            <p>season: {{product.season}}</p>
+            <p>{{ product.category.title }}</p>
+            <p>{{ product.top_material }}</p>
+            <p>{{ product.insole_material }}</p>
+            <p>{{ product.outsole_material }}</p>
+            <p>{{ product.lining_material }}</p>
+            <p>{{ product.type_outsole }}</p>
+            <p>{{ product.fastening_method }}</p>
+            <p>{{ product.fullness }}</p>
             <form action="">
                 <div class="size-choice uk-flex">
                 {% for size in product.size.all %}  

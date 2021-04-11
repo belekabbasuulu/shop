@@ -7,25 +7,25 @@
   </section>
   <section class="catalog uk-margin-medium-top">
     <div class="uk-container">
-      <h3 class="uk-text-center">КАТАЛОГ</h3>
+      <h3 class="uk-text-center">{{ title_of_page }}</h3>
       <div class="category uk-margin-bottom uk-visible@m">
         <form action="">
           <div class="relative-filter uk-flex uk-flex-between">
             <div class="item">
               <div class="uk-position-relative"><span class="trigger">Категория<span uk-icon="chevron-down"></span></span>
                 <div class="drop" uk-dropdown="mode: click">
-                  <!-- <div>
-                    <label>
-                      <input class="uk-checkbox" type="checkbox"><span class="uk-margin-small-left">Чек бокс</span>
-                    </label>
-                  </div> -->
-                  {% for category in categories%}
+                  {% for category in categories %}
                   <div>
                     <label>
-                      <input class="uk-radio" type="radio" name="radio2"><span class="uk-margin-small-left">{{ category.title }}</span>
+                      <input class="uk-checkbox" type="checkbox"><span class="uk-margin-small-left">{{ category.title }}</span>
                     </label>
                   </div>
                   {% endfor %}
+                  <!-- <div>
+                    <label>
+                      <input class="uk-radio" type="radio" name="radio2"><span class="uk-margin-small-left">{{ category.title }}</span>
+                    </label>
+                  </div> -->
                   <!-- <div>
                     <label>
                       <input class="uk-radio" type="radio" name="radio2"><span class="uk-margin-small-left">Чек бокс</span>
@@ -39,37 +39,154 @@
             </div>
             <div class="item">
               <div class="uk-position-relative"><span class="trigger regular">Бренды<span uk-icon="chevron-down"></span></span>
-                <div class="drop" uk-dropdown="mode: click"></div>
+                <div class="drop" uk-dropdown="mode: click">
+                  {% for brand in brands %}
+                  <div>
+                    <label>
+                      <input class="uk-checkbox" type="checkbox"><span class="uk-margin-small-left">{{ brand.title }}</span>
+                    </label>
+                  </div>
+                  {% endfor %}
+                </div>
               </div>
             </div>
             <div class="item">
               <div class="uk-position-relative"><span class="trigger regular">Материал<span uk-icon="chevron-down"></span></span>
-                <div class="drop" uk-dropdown="mode: click"></div>
+                <div class="drop" uk-dropdown="mode: click">
+                  
+                    <div>
+                      <label>
+                        <input class="uk-checkbox" type="checkbox"><span class="uk-margin-small-left">Искусственная кожа</span>
+                      </label>
+                    </div>
+                    <div>
+                      <label>
+                        <input class="uk-checkbox" type="checkbox"><span class="uk-margin-small-left">Нубук</span>
+                      </label>
+                    </div>
+                    <div>
+                      <label>
+                        <input class="uk-checkbox" type="checkbox"><span class="uk-margin-small-left">Натуральная кожа</span>
+                      </label>
+                    </div>
+                    <div>
+                      <label>
+                        <input class="uk-checkbox" type="checkbox"><span class="uk-margin-small-left">Наплак</span>
+                      </label>
+                    </div>
+                </div>  
               </div>
             </div>
             <div class="item">
               <div class="uk-position-relative"><span class="trigger regular">Пол<span uk-icon="chevron-down"></span></span>
-                <div class="drop" uk-dropdown="mode: click"></div>
+                <div class="drop" uk-dropdown="mode: click">
+                  <div>
+                    <label>
+                      <input class="uk-checkbox" type="checkbox"><span class="uk-margin-small-left">Женский</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input class="uk-checkbox" type="checkbox"><span class="uk-margin-small-left">Мужской</span>
+                    </label>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="item">
               <div class="uk-position-relative"><span class="trigger regular">Размер<span uk-icon="chevron-down"></span></span>
-                <div class="drop" uk-dropdown="mode: click"></div>
+                <div class="drop" uk-dropdown="mode: click">
+                  <div>
+                    <label>
+                      <input class="uk-checkbox" type="checkbox"><span class="uk-margin-small-left">35</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input class="uk-checkbox" type="checkbox"><span class="uk-margin-small-left">36</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input class="uk-checkbox" type="checkbox"><span class="uk-margin-small-left">37</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input class="uk-checkbox" type="checkbox"><span class="uk-margin-small-left">38</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input class="uk-checkbox" type="checkbox"><span class="uk-margin-small-left">39</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input class="uk-checkbox" type="checkbox"><span class="uk-margin-small-left">40</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input class="uk-checkbox" type="checkbox"><span class="uk-margin-small-left">41</span>
+                    </label>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="item">
               <div class="uk-position-relative"><span class="trigger regular">Цена<span uk-icon="chevron-down"></span></span>
-                <div class="drop" uk-dropdown="mode: click"></div>
+                <div class="drop" uk-dropdown="mode: click">
+                  <div>
+                    <input placeholder="Min price" class="range_slider">
+                    <input placeholder="Max price" class="range_slider">
+                  </div>
+                </div>
               </div>
             </div>
             <div class="item">
-              <div class="uk-position-relative"><span class="trigger regular">Стиль<span uk-icon="chevron-down"></span></span>
-                <div class="drop" uk-dropdown="mode: click"></div>
+              <div class="uk-position-relative"><span class="trigger regular">Сезон<span uk-icon="chevron-down"></span></span>
+                <div class="drop" uk-dropdown="mode: click">
+                  <div>
+                    <label>
+                      <input class="uk-checkbox" type="checkbox"><span class="uk-margin-small-left">Деми</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input class="uk-checkbox" type="checkbox"><span class="uk-margin-small-left">Зима</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input class="uk-checkbox" type="checkbox"><span class="uk-margin-small-left">Лето</span>
+                    </label>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="item">
               <div class="uk-position-relative"><span class="trigger regular">Сортировка<span uk-icon="chevron-down"></span></span>
-                <div class="drop" uk-dropdown="mode: click"></div>
+                <div class="drop" uk-dropdown="mode: click">
+                  <div>
+                    Цена: <br>
+                    <label>
+                      <input class="uk-checkbox" type="checkbox"><span class="uk-margin-small-left">По убыванию</span>
+                    </label>
+                  </div>
+                  <div>
+                    Цена: <br>
+                    <label>
+                      <input class="uk-checkbox" type="checkbox"><span class="uk-margin-small-left">По возрастанию</span>
+                    </label>
+                  </div>
+                  <div>
+                    Дата: <br>
+                    <label>
+                      <input class="uk-checkbox" type="checkbox"><span class="uk-margin-small-left">Сначала новые</span>
+                    </label>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="item">
@@ -237,41 +354,47 @@
         {% for product in products %}
             <div>
             <div class="favorite" uk-toggle="target: .heart; animation: uk-animation-fade; queued: true"><i class="fa fa-heart-o heart"></i><i class="fa fa-heart heart" hidden></i></div>
-            <div class="item uk-position-relative">
-                <div class="badge uk-flex-inline">
-                <div class="badge-item"><span>new</span></div>
-                <div class="badge-discount"><span>-40%</span></div>
-                </div>
-                
-                {% for image in product.image.all|slice:":1" %}
-                    <div class="img-wrapper uk-cover-container"><img data-uk-img data-src="{{ image.image.url }}" alt="{{image.name}}">
-                {% endfor %}
-                <!-- {% for item in images|slice:":1" %}
-                {% if product.id == item.product.id %}
-                    <div class="img-wrapper uk-cover-container"><img data-uk-img data-src="{{ item.image.url }}" alt="">
-                {% endif %}
-                {% endfor %} -->
-                <div class="size">
-                    <div class="uk-flex uk-child-width-1-2">
-                        <div class="uk-text-left"><span class="size-text light">Размеры</span></div>
-                        <div class="uk-text-right">
-                            {% for size in product.size.all %}
-                                <span class="size-item light">{{size}}</span>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-                </div>
-                <div class="title-box">
-                <div class="uk-flex uk-child-width-1-2">
-                    <div class="uk-text-left">
-                    <h2 class="medium">{{ product.title }}</h2>
-                    </div>
-                    <div class="uk-text-right"><span class="medium">{{ product.price }} KGS</span></div>
-                </div>
-                <p class="light">{{ product.description }}</p>
-                </div>
-            </div>
+            <a href="{% url 'product-detail' product.id %}">
+              <div class="item uk-position-relative">
+                  <div class="badge uk-flex-inline">
+                  {% if product.new == True %}
+                    <div class="badge-item"><span>new</span></div>
+                  {% endif %}
+                  {% if product.percent != 0 %}
+                  <div class="badge-discount"><span>-{{ product.percent }}%</span></div>
+                  {% endif %}
+                  </div>
+                  
+                  {% for image in product.image.all|slice:":1" %}
+                      <div class="img-wrapper uk-cover-container"><img data-uk-img data-src="{{ image.image.url }}" alt="{{image.name}}">
+                  {% endfor %}
+                  <!-- {% for item in images|slice:":1" %}
+                  {% if product.id == item.product.id %}
+                      <div class="img-wrapper uk-cover-container"><img data-uk-img data-src="{{ item.image.url }}" alt="">
+                  {% endif %}
+                  {% endfor %} -->
+                  <div class="size">
+                      <div class="uk-flex uk-child-width-1-2">
+                          <div class="uk-text-left"><span class="size-text light">Размеры</span></div>
+                          <div class="uk-text-right">
+                              {% for size in product.size.all %}
+                                  <span class="size-item light">{{size}}</span>
+                              {% endfor %}
+                          </div>
+                      </div>
+                  </div>
+                  </div>
+                  <div class="title-box">
+                  <div class="uk-flex uk-child-width-1-2">
+                      <div class="uk-text-left">
+                      <h2 class="medium">{{ product.title }}</h2>
+                      </div>
+                      <div class="uk-text-right"><span class="medium">{{ product.price }} KGS</span></div>
+                  </div>
+                  <p class="light">{{ product.description }}</p>
+                  </div>
+              </div>
+            </a>
             </div>
         {% endfor %}
         <div uk-scrollspy="target: &gt; div; cls:uk-animation-fade; delay: 300; repeat: true"></div>
