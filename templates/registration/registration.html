@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="profile uk-margin-large-top">
+    <div class="uk-container uk-container-small">
+      <div class="border-bottom">
+        <h2 class="style">Регистрация</h2>
+      </div>
+      {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+      </ul>
+    {% endif %}
+    <form action="{% url 'registration' %}" method="POST">
+        {% csrf_token %}
+      <div class="uk-card uk-card-default uk-cart-body uk-padding">
+        <div class="uk-grid uk-child-width-1-2@m" uk-grid="">
+          <div class="uk-position-relative uk-width-expand@m">
+            <div>
+              <input name="username" class="toggle title-toggle" type="text" placeholder="Username" required>
+            </div>
+            <div class="uk-heading-divider">
+                <div class="uk-width-1-1"><span class="regular">Имя:</span>
+                  <input name="first_name" class="uk-width-1-1 light toggle text-toggle" type="text" >
+                </div>
+              </div>
+            <div class="uk-heading-divider">
+                <div class="uk-width-1-1"><span class="regular">Фамилия:</span>
+                  <input name="last_name" class="uk-width-1-1 light toggle text-toggle" type="text" >
+                </div>
+            </div>
+            <div class="uk-heading-divider">
+              <div class="uk-width-1-1"><span class="regular">Email:</span>
+                <input name="email" class="uk-width-1-1 light toggle text-toggle" type="text" placeholder="name@gmail.com" required>
+              </div>
+            </div>
+            <div class="uk-heading-divider">
+              <div class="uk-width-1-1"><span class="regular">Номер телефона:</span>
+                <input name="phone_number" class="uk-width-1-1 light toggle text-toggle" type="text"  placeholder="+99670416177...">
+              </div>
+            </div>
+            <div class="uk-heading-divider">
+              <div class="uk-width-1-1"><span class="regular">Адрес:</span>
+                <input name="address" class="uk-width-1-1 light toggle text-toggle" type="text"  placeholder="г.Бишкек ул. Грибоедова...">
+              </div>
+            </div>
+            <div class="uk-heading-divider">
+                <div class="uk-width-1-1"><span class="regular">Пароль:</span>
+                  <input name="password1" class="uk-width-1-1 light toggle text-toggle" type="password"  placeholder="" required>
+                </div>
+              </div>
+              <div class="uk-heading-divider">
+                <div class="uk-width-1-1"><span class="regular">Подвердите пароль:</span>
+                  <input name="password2" class="uk-width-1-1 light toggle text-toggle" type="password"  placeholder="" required>
+                </div>
+              </div>
+              <div class="uk-heading-divider">
+                <div class="uk-width-1-1"><span class="regular">Фото:</span>
+                  <input name="image" class="uk-width-1-1 light toggle text-toggle" type="file">
+                </div>
+              </div>
+            <div class="toggle"></div>
+            <button type="submit" class="uk-button save toggle" >СОЗДАТЬ</button>
+          </div>
+        </div>
+      </div>
+      </form>
+    </div>
+  </section>
+
+{% endblock %}

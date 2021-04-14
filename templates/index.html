@@ -152,7 +152,7 @@
           {% for product in products %}
           <li>
             <div class="favorite uk-margin-top uk-margin-right" uk-toggle="target: .heart4; animation: uk-animation-fade; queued: true">
-              <i class="fa fa-heart-o heart4"></i>
+              <i class="fa fa-heart heart4"></i>
               <i class="fa fa-heart heart4" hidden></i>
             </div>
             <a href="{% url 'product-detail' product.id %}">

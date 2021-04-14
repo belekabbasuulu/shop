@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="profile uk-margin-large-top">
+  <div class="uk-container uk-container-small">
+    <div class="border-bottom">
+      <h2 class="style">Вход</h2>
+    </div>
+    {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+      </ul>
+    {% endif %}
+    {% if user.is_authenticate %}
+    <h3>Вы уже выполнили вход</h3>
+    {% else %}
+    <form action="{% url 'login' %}" method="POST">
+    {% csrf_token %}
+    <div class="uk-card uk-card-default uk-cart-body uk-padding">
+      <div class="uk-grid uk-child-width-1-2@m" uk-grid="">        
+          <div class="uk-position-relative uk-width-expand@m">
+            <div class="uk-width-1-1">
+              <input name="username" class="uk-width-1-1 light toggle text-toggle" type="text" placeholder="Username" required>
+            </div>
+            <div class="uk-heading-divider">
+              <div class="uk-width-1-1"><br>
+                <input name="password" class="uk-width-1-1 light toggle text-toggle" type="password" placeholder="Password" required>
+              </div>
+            </div>
+            <button type="submit" class="uk-width-1-1 light toggle text-toggle" style="background: #FD5F00;
+            border-color: #FD5F00;
+            font-size: 18px;
+            text-align: center;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            line-height: 22px;
+            -webkit-transition: 0.3s;
+            transition: 0.3s;" >Войти</button>
+          </div>
+      </div>
+  <a href="{% url 'registration' %}">У вас нету аккаунта? создайте аккаунт</a>
+    </div>
+  </form>
+  {% endif %}
+  </div>
+</section>
+
+{% endblock %}

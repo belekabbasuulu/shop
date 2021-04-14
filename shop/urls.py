@@ -1,4 +1,6 @@
 from django.urls import path
+from django.contrib.auth.views import LogoutView
+
 
 from .views import (
     HomeView,
@@ -14,6 +16,9 @@ from .views import (
     BlogView,
     MainStockView,
     StockView,
+    AccountLoginView,
+    AccountRegistrationView,
+    ProfileView,
 )
 
 urlpatterns = [
@@ -30,6 +35,12 @@ urlpatterns = [
     path('zima/', ZimaView.as_view(), name='zima'),
     path('leto/', LetoView.as_view(), name='leto'),
     path('demi/', DemiView.as_view(), name='demi'),
+
+    path('login/', AccountLoginView.as_view(), name='login'),
+    path('logout/', LogoutView.as_view(), name='logout'),
+    path('registration/', AccountRegistrationView.as_view(), name='registration'),
+    path('profile/', ProfileView.as_view(), name='profile'),
+
 
 
 ]

@@ -70,8 +70,21 @@
               <li class="move"><a href="{% url 'about' %}">О НАС</a></li>
               <li class="move"><a href="{% url 'all-blog' %}">БЛОГ</a></li>
               <li class="move basket"><a href="#"><span class="icon"></span>1</a></li>
-              <li class="enter"><a class="enter-item" href="#">вход</a>
-                <div class="social" id="social-enter"><a href=""><img src="{% static 'img/svg/vk.svg' %}" alt=""></a><a href=""><img src="{% static 'img/svg/fb.svg' %}" alt=""></a><a href=""><img src="{% static 'img/svg/gg.svg' %}" alt=""></a><a class="enter-item close" href="#"><img src="{% static 'img/svg/close.svg' %}" alt=""></a></div>
+              <li class="enter"><a class="enter-item" href="#"><i class="fa fa-bars" style='font-size:17px;color:rgb(10, 38, 124)'></i></a>
+                <div class="social" id="social-enter">
+                  <!-- <a href=""><img src="{% static 'img/svg/vk.svg' %}" alt=""></a> -->
+                  <!-- <a href=""><img src="{% static 'img/svg/fb.svg' %}" alt=""></a>                
+                  <a href=""><img src="{% static 'img/svg/gg.svg' %}" alt=""></a> -->
+                  {% if user.is_authenticated %}
+                  <a class="far fa-heart" href="{% url 'profile' %}" style='font-size:24px;color:rgb(10, 38, 124)'></a>
+                  <a class="far fa-user" href="{% url 'profile' %}" style='font-size:24px;color:rgb(10, 38, 124)'></a>
+                  <a class="fas fa-sign-in-alt" href="{% url 'logout' %}" style="font-size:24px;color:red"></a>
+                  {% else %}
+                  <a class="far fa-user" href="{% url 'registration' %}" style='font-size:24px;color:rgb(10, 38, 124)'></a>
+                  <a class="fas fa-sign-in-alt" href="{% url 'login' %}" style="font-size:24px;color:green"></a>
+                  {% endif %}
+                  <a class="enter-item close" href="#"><img src="{% static 'img/svg/close.svg' %}" alt=""></a>
+                </div>
               </li>
             </ul>
           </div>
@@ -149,6 +162,7 @@
     </div>
     <script src="{% static 'js/libs.min.js' %}"></script>
     <script src="{% static 'js/common.min.js' %}"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <script>
       $(window).on('load', function () {
           var $preloader = $('#preloader'),
