@@ -1,14 +1,14 @@
+import cart
 from django.shortcuts import render, redirect
-from django.views import View
 from datetime import datetime
 from django.db.models import Q
 from django.views import View
-from django.contrib import auth
+from django.contrib import auth, messages
 from django.contrib.auth import authenticate, login
 
 from .models import Product, Image, Blog, Stock, Category, Brand
 from users.models import User
-from django.contrib import messages
+from cart.forms import CartAddProductForm
 
 
 class ProfileView(View):
@@ -21,6 +21,19 @@ class ProfileView(View):
             'user': user
         }
         return render(request, 'registration/profile.html', context)
+
+    def post(self, request):
+        user = request.user
+        user = User.objects.get(username=user.username)
+        user.first_name = request.POST['first_name']
+        user.last_name = request.POST['last_name']
+        user.username = request.POST['username']
+        user.email = request.POST['email']
+        user.phone_number = request.POST['phone_number']
+        user.address = request.POST['address']
+        user.image = request.FILES['image']
+        user.save()
+        return redirect('profile')
 
 
 class AccountRegistrationView(View):
@@ -114,12 +127,16 @@ class ProductDetailView(View):
 
     def get(self, request, pk):
         product = Product.objects.get(id=pk)
-        product.stock_price = product.price * (100 - product.percent) / 100
+        if product.percent != 0:
+            product.stock_price = product.price * (100 - product.percent) / 100
+            product.save()
         similar_products = Product.objects.filter(
             Q(category=product.category) | Q(brand=product.brand))[:4]
+        cart_product_form = CartAddProductForm()
         context = {
             'product': product,
-            'similar_products': similar_products
+            'similar_products': similar_products,
+            'cart_product_form': cart_product_form
         }
         return render(request, 'shop/product_detail.html', context)
 
@@ -140,8 +157,14 @@ class StockView(View):
         products = Product.objects.filter(percent__gt=0)
         for i in products:
             i.stock_price = i.price * (100 - i.percent) / 100
+        title_of_page = "АКЦИИ"
+        categories = Category.objects.all()
+        brands = Brand.objects.all()
         context = {
             'products': products,
+            'title_of_page': title_of_page,
+            'categories': categories,
+            'brands': brands,
         }
         return render(request, 'shop/stock.html', context)
 
@@ -171,11 +194,13 @@ class Womanview(View):
     def get(self, request):
         products = Product.objects.filter(gender="F")
         categories = Category.objects.all()
+        brands = Brand.objects.all()
         title_of_page = "ЖЕНСКАЯ ОБУВЬ"
         context = {
             "categories": categories,
             "products": products,
-            'title_of_page': title_of_page
+            'title_of_page': title_of_page,
+            'brands': brands,
         }
         return render(request, 'shop/catalog.html', context)
 
@@ -186,10 +211,12 @@ class Manview(View):
         products = Product.objects.filter(gender="M")
         categories = Category.objects.all()
         title_of_page = "МУЖСКАЯ ОБУВЬ"
+        brands = Brand.objects.all()
         context = {
             "categories": categories,
             "products": products,
-            'title_of_page': title_of_page
+            'title_of_page': title_of_page,
+            'brands': brands,
         }
         return render(request, 'shop/catalog.html', context)
 
@@ -200,10 +227,12 @@ class ZimaView(View):
         products = Product.objects.filter(season="Зима")
         categories = Category.objects.all()
         title_of_page = "ЗИМНЯЯ ОБУВЬ"
+        brands = Brand.objects.all()
         context = {
             "categories": categories,
             "products": products,
-            'title_of_page': title_of_page
+            'title_of_page': title_of_page,
+            'brands': brands,
         }
         return render(request, 'shop/catalog.html', context)
 
@@ -214,10 +243,12 @@ class LetoView(View):
         products = Product.objects.filter(season="Лето")
         categories = Category.objects.all()
         title_of_page = "ЛЕТНЯЯ ОБУВЬ"
+        brands = Brand.objects.all()
         context = {
             "categories": categories,
             "products": products,
-            'title_of_page': title_of_page
+            'title_of_page': title_of_page,
+            'brands': brands,
         }
         return render(request, 'shop/catalog.html', context)
 
@@ -228,9 +259,11 @@ class DemiView(View):
         products = Product.objects.filter(season="Деми")
         categories = Category.objects.all()
         title_of_page = "ДЕМИ СЕЗОННАЯ ОБУВЬ"
+        brands = Brand.objects.all()
         context = {
             "categories": categories,
             "products": products,
-            'title_of_page': title_of_page
+            'title_of_page': title_of_page,
+            "brands": brands,
         }
         return render(request, 'shop/catalog.html', context)

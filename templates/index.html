@@ -152,8 +152,8 @@
           {% for product in products %}
           <li>
             <div class="favorite uk-margin-top uk-margin-right" uk-toggle="target: .heart4; animation: uk-animation-fade; queued: true">
-              <i class="fa fa-heart heart4"></i>
-              <i class="fa fa-heart heart4" hidden></i>
+              <i class="far fa-heart heart4" style="color: rgb(6, 6, 126); font-size: 30px;"></i>
+              <i class="fas fa-heart heart4" style="color: rgb(6, 6, 126); font-size: 30px;" hidden ></i>
             </div>
             <a href="{% url 'product-detail' product.id %}">
               <div class="item">

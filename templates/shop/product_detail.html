@@ -8,13 +8,13 @@
             <div>
               <div>
                 {% for image in product.image.all|slice:":1" %}
-                  <img class="my-foto-container uk-width-1-1" data-large="img/jpg/fila-small.jpg" src="{{ image.image.url }}" alt="" title="Фото">
+                  <img class="my-foto-container uk-width-1-1" style="height: 400px; object-fit: contain;" data-large="{{ image.image.url }}" src="{{ image.image.url }}" alt="" title="Фото">
                 {% endfor %}
                 <div class="uk-flex">
                   {% for image in product.image.all %}
                   <div>
                     <div class="item-child">
-                      <img class="my-foto" data-large="img/jpg/fila-small.jpg" src="{{ image.image.url }}" title="Фото1">
+                      <img class="my-foto" data-large="{{ image.image.url }}" src="{{ image.image.url }}" title="Фото1">
                     </div>
                   </div>
                   {% endfor %}
@@ -45,19 +45,20 @@
             <p>{{ product.type_outsole }}</p>
             <p>{{ product.fastening_method }}</p>
             <p>{{ product.fullness }}</p>
-            <form action="">
+            <form action="{% url 'cart:cart_add' product.id %}" method="POST">
+              {% csrf_token %}
                 <div class="size-choice uk-flex">
                 {% for size in product.size.all %}  
                 <div class="uk-margin-small-right">
                     <label>
-                    <input type="checkbox"><span>{{size}}</span>
+                    <input type="checkbox"><span>{{ size }}</span>
                     </label>
                 </div>
                 {% endfor %}
                 </div>
                 <div class="quantity-choice uk-flex uk-margin-medium uk-flex-middle uk-grid uk-grid-small uk-child-width-auto@s" data-uk-grid>
                 <div class="uk-margin-small-right uk-flex"><span class="minus"></span>
-                    <input type="number" value="1" size="5"><span class="plus"></span>
+                  {{ cart_product_form.quantity }}<span class="plus"></span>
                 </div>
                 <div>
                     <button class="uk-button uk-button-primary uk-margin-small-right">В корзину</button>
@@ -224,10 +225,15 @@
             <ul class="uk-slider-items uk-child-width-1-1 uk-grid uk-grid-small uk-child-width-1-4@m" uk-scrollspy="target: &gt; li; cls:uk-animation-fade; delay: 500; repeat: true">
               {% for product in similar_products %}
               <li>
-                <div class="favorite" uk-toggle="target: .heart; animation: uk-animation-fade; queued: true"><i class="fa fa-heart-o heart"></i><i class="fa fa-heart heart" hidden></i></div>
+                <div class="favorite uk-margin-top uk-margin-right" uk-toggle="target: .heart4; animation: uk-animation-fade; queued: true">
+                  <i class="far fa-heart heart4" style="color: rgb(6, 6, 126); font-size: 30px;"></i>
+                  <i class="fas fa-heart heart4" style="color: rgb(6, 6, 126); font-size: 30px;" hidden ></i>
+                </div>
+                 <!-- <i class="fa fa-heart-o heart"></i>
+                  <i class="fa fa-heart heart" hidden></i> -->
                 <div class="item uk-position-relative"><a class="uk-position-cover link-to-good" href=""></a>
                   {% for image in product.image.all|slice:":1" %}
-                  <div class="img-wrapper uk-cover-container"><img src="{{ image.image.url }}" alt=""></div>
+                  <div class="img-wrapper uk-cover-container"><img src="{{ image.image.url }}"  alt=""></div>
                   {% endfor %}
                   <div class="title uk-flex uk-flex-middle">
                     <div class="uk-width-expand@s">

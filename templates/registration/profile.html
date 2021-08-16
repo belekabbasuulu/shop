@@ -8,50 +8,59 @@
       <div class="border-bottom">
         <h2 class="style">ВАШ ПРОФИЛЬ</h2>
       </div>
-      <form action="{% url 'profile' %}" method="POST">
+      <form action="{% url 'profile'  %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
       <div class="uk-card uk-card-default uk-cart-body uk-padding">
         <div class="uk-grid uk-child-width-1-2@m" uk-grid="">
           <div class="uk-width-auto@m">
-            <div class="load"><img style="width: 300px; height: 300px;" src="{{ user.image.url }}" alt="">
-              <div class="js-upload" uk-form-custom="">
-                <input type="file" multiple><img class="cam" src="{% static 'img/svg/camera.svg' %}" alt="" tabindex="-1">
+            <div class="load">
+                {% if user.image %}
+                    <img style="width: 300px; height: 300px;" src="{{ user.image.url }}" alt="">
+                {% endif %}
+            <div class="uk-heading-divider">  
+              <div class="uk-width-1-1">
+                <!-- <input name="image" type="file" multiple><img class="cam" src="{% static 'img/svg/camera.svg' %}" alt="" tabindex="-1"> -->
+                <input name="image" class="uk-width-1-1 light toggle text-toggle" type="file" hidden>
               </div>
+            </div>
             </div>
           </div>
           <div class="uk-position-relative uk-width-expand@m">
             <div>
               <h3 class="toggle">{{ user.username }}</h3>
-              <input class="toggle title-toggle" type="text" value='{{ user.username }}' hidden>
+              <input name="username" class="toggle title-toggle" type="text" value='{{ user.username }}' hidden>
             </div>
             <div class="align-right"><img src="{% static 'img/svg/pencil.svg' %}" alt="" uk-toggle="target: .toggle"></div>
             <div class="uk-heading-divider">
                 <div class="uk-width-1-1"><span class="regular">Имя:</span><a class="light uk-margin-small-left toggle" href="">{{ user.first_name }}</a>
-                    <input class="uk-width-1-1 light toggle text-toggle" type="text" value="{{ user.first_name }}" hidden>
+                    <input name="first_name" class="uk-width-1-1 light toggle text-toggle" type="text" value="{{ user.first_name }}" hidden>
                 </div>
             </div>
             <div class="uk-heading-divider">
                 <div class="uk-width-1-1"><span class="regular">Фамилия:</span><a class="light uk-margin-small-left toggle" href="">{{ user.last_name }}</a>
-                    <input class="uk-width-1-1 light toggle text-toggle" type="text" value="{{ user.last_name }}" hidden>
+                    <input name="last_name" class="uk-width-1-1 light toggle text-toggle" type="text" value="{{ user.last_name }}" hidden>
                 </div>
             </div>
             <div class="uk-heading-divider">
               <div class="uk-width-1-1"><span class="regular">Email:</span><a class="light uk-margin-small-left toggle" href="">{{ user.email }}</a>
-                <input class="uk-width-1-1 light toggle text-toggle" type="text" value="{{ user.email }}" hidden>
+                <input name="email" class="uk-width-1-1 light toggle text-toggle" type="text" value="{{ user.email }}" hidden>
               </div>
             </div>
             <div class="uk-heading-divider">
               <div class="uk-width-1-1"><span class="regular">Номер телефона:</span><a class="light uk-margin-small-left toggle" href="{{ user.phone_number }}">{{ user.phone_number }}</a>
-                <input class="uk-width-1-1 light toggle text-toggle" type="text" hidden value="{{ user.phone_number }}">
+                <input name="phone_number" class="uk-width-1-1 light toggle text-toggle" type="text" hidden value="{{ user.phone_number }}">
               </div>
             </div>
             <div class="uk-heading-divider">
               <div class="uk-width-1-1"><span class="regular">Адрес:</span><a class="light uk-margin-small-left toggle" href="">{{ user.address }}</a>
-                <input class="uk-width-1-1 light toggle text-toggle" type="text" hidden value="{{ user.address }}">
+                <input name="address" class="uk-width-1-1 light toggle text-toggle" type="text" hidden value="{{ user.address }}">
               </div>
             </div>
+                <!-- <div class="uk-width-1-1">
+                  <input name="image" class="uk-width-1-1 light toggle text-toggle" type="file" hidden>
+                </div> -->
             <div class="toggle"></div>
-            <button class="uk-button save toggle" hidden>СОХРАНИТЬ</button>
+            <button type="submit" class="uk-button save toggle" hidden>СОХРАНИТЬ</button>
           </div>
         </div>
       </div>

@@ -27,8 +27,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+
     'users',
     'shop',
+    'cart',
+
     'ckeditor',
     'ckeditor_uploader',
 ]
@@ -73,12 +76,6 @@ WSGI_APPLICATION = 'mainapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'shop',
-        'USER': 'postgres',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
-        'PORT': '5432',
     }
 }
 
@@ -115,6 +112,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+CART_ID = 'cart'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -201,3 +199,5 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

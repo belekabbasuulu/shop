@@ -57,11 +57,15 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     new = models.BooleanField(default=False)
     percent = models.PositiveIntegerField(default=0)
-    stock_price = models.PositiveIntegerField(default=0)
-    # is_favorite = models.BooleanField(default=False)
+    stock_price = models.DecimalField(
+        max_digits=100, decimal_places=2, null=True, blank=True)
+    is_favorite = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
+
+    def difference_price(self):
+        return self.price - self.stock_price
 
 
 class Image(models.Model):
